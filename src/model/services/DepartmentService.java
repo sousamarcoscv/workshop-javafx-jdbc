@@ -15,5 +15,9 @@ public class DepartmentService {
 		return dao.findAll();
 		
 	}
+	
+	public void uptade(Department obj) {
+		dao.update(obj);
+	}
 
 }
