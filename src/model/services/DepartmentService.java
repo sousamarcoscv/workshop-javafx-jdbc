@@ -16,8 +16,13 @@ public class DepartmentService {
 		
 	}
 	
-	public void uptade(Department obj) {
-		dao.update(obj);
+	public void SaveOrUptade(Department obj) {
+		if(obj.getId()==null) {
+			dao.insert(obj);
+		} else {
+			dao.update(obj);
+		}
+		
 	}
 
 }
