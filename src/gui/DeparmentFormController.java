@@ -15,7 +15,6 @@ import gui.util.Utils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -124,15 +123,15 @@ public class DeparmentFormController implements Initializable {
 
 	public void updateFormData() {
 		if (entity == null) {
-			txtId.setText(String.valueOf(entity.getId()));
-			txtname.setText(entity.getName());
+			throw new IllegalStateException("Entity was null");
 		}
-
+		txtId.setText(String.valueOf(entity.getId()));
+		txtname.setText(entity.getName());
 	}
-	
-	private void setErrorMessages(Map<String,String> errors) {
+
+	private void setErrorMessages(Map<String, String> errors) {
 		Set<String> fields = errors.keySet();
-		if(fields.contains("name")) {
+		if (fields.contains("name")) {
 			labelErrorName.setText(errors.get("name"));
 		}
 	}
